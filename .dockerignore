@@ -1,0 +1,8 @@
+.dockerignore
+.git/
+venv/
+kubernetes.yaml
+build.sh
+README.md
+Dockerfile
+.gitignore

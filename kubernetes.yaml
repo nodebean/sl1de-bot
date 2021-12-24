@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sl1de-bot
+  labels:
+    app: sl1de-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sl1de-bot
+  template:
+    metadata:
+      labels:
+        app: sl1de-bot
+    spec:
+      containers:
+        - name: sl1de-bot
+          image: localhost:32000/sl1de-bot:latest 
+          env:
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: bot-token
+                  key: BOT_TOKEN
